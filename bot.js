@@ -1,3 +1,5 @@
+const http = require('http');
+
 const { Telegraf } = require('telegraf');
 const { listService } = require('./services/list.js');
 const { exchangeService } = require('./services/exchange.js');
@@ -53,3 +55,5 @@ bot.command('history', async (ctx) => {
 });
 
 bot.launch();
+
+http.createServer().listen(8080);
