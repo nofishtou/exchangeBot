@@ -38,7 +38,7 @@ async function renderChart(chartData) {
         yAxes: [
           {
             ticks: {
-              callback: (value) => '$' + value,
+              callback: (value) => value,
             },
           },
         ],
