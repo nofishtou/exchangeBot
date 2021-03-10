@@ -1,7 +1,7 @@
 const { formatDate, getRequest } = require('../accessories/accessories.js');
 const { renderChart } = require('../accessories/chart.js');
 
-async function historyService (params) {
+async function historyService(params) {
   const now = new Date();
   //1 day === 8640000ms;
   const fromDate = new Date(now - 86400000 * params[3]);
@@ -10,13 +10,18 @@ async function historyService (params) {
   const secondCurrency = `${params[1].slice(4, 7)}`;
   const fromDateFormat = formatDate(fromDate);
   const toDateFormat = formatDate(now);
-  const url = `https://api.exchangeratesapi.io/history` +
-              `?start_at=${fromDateFormat}` +
-              `&end_at=${toDateFormat}` +
-              `&base=${firstCurrency}` +
-              `&symbols=${secondCurrency}`;
+  const url =
+    `https://api.exchangeratesapi.io/history` +
+    `?start_at=${fromDateFormat}` +
+    `&end_at=${toDateFormat}` +
+    `&base=${firstCurrency}` +
+    `&symbols=${secondCurrency}`;
 
   const data = await getRequest(url);
+
+  if (JSON.parse(data).error) {
+    return null;
+  }
 
   const chartDataParams = {
     name: params[1],
