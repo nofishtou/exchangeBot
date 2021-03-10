@@ -56,4 +56,4 @@ bot.command('history', async (ctx) => {
 
 bot.launch();
 
-http.createServer().listen(8080);
+http.createServer().listen(process.env.PORT || 8080);
