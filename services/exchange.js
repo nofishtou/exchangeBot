@@ -28,7 +28,7 @@ async function exchangeService(params) {
   rates = JSON.parse(getFromCache('rates'));
 
   let amount;
-
+  
   if (params[1] && params[1].includes('$')) {
     if (!rates[params[3]]) {
       return null;
