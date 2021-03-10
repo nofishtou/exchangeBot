@@ -29,7 +29,7 @@ async function exchangeService(params) {
 
   let amount;
 
-  if (params[1].includes('$')) {
+  if (params[1] && params[1].includes('$')) {
     if (!rates[params[3]]) {
       return null;
     }
