@@ -1,0 +1,21 @@
+{
+  "name": "testbot",
+  "version": "1.0.0",
+  "description": "test bot",
+  "main": "bot.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^2.9.4",
+    "chartjs-node-canvas": "^3.1.0",
+    "dotenv": "^8.2.0",
+    "telegraf": "^4.1.0"
+  }
+}
