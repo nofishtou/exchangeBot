@@ -5,7 +5,9 @@ async function historyService(params) {
   const now = new Date();
   //1 day === 8640000ms;
   const fromDate = new Date(now - 86400000 * params[3]);
-
+  if(!params[1]) {
+    return null;
+  }
   const firstCurrency = `${params[1].slice(0, 3)}`;
   const secondCurrency = `${params[1].slice(4, 7)}`;
   const fromDateFormat = formatDate(fromDate);

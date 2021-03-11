@@ -28,37 +28,29 @@ bot.command('list', async (ctx) => {
 });
 
 bot.command('exchange', async (ctx) => {
-  if (ctx.update.message.text) {
-    const params = ctx.update.message.text.split(' ');
-    const amount = await exchangeService(params);
+  const params = ctx.update.message.text.split(' ');
+  const amount = await exchangeService(params);
 
-    if (!amount) {
-      ctx.reply('wrong parameters');
-      return;
-    }
-
-    ctx.reply(amount);
-  } else {
+  if (!amount) {
     ctx.reply('wrong parameters');
+    return;
   }
+
+  ctx.reply(amount);
 });
 
 bot.command('history', async (ctx) => {
-  if (ctx.update.message.text) {
-    const params = ctx.update.message.text.split(' ');
-    const chart = await historyService(params);
+  const params = ctx.update.message.text.split(' ');
+  const chart = await historyService(params);
 
-    if (!chart) {
-      ctx.reply('wrong parameters');
-      return;
-    }
-
-    ctx.replyWithPhoto({
-      source: chart,
-    });
-  } else {
+  if (!chart) {
     ctx.reply('wrong parameters');
+    return;
   }
+
+  ctx.replyWithPhoto({
+    source: chart,
+  });
 });
 
 bot.launch();
