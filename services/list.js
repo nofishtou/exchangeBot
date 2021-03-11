@@ -28,7 +28,7 @@ async function listService() {
       await getRequest('https://api.exchangeratesapi.io/latest?base=USD')
     ).rates;
 
-    setToCache('rates', JSON.stringify(data));
+    setToCache('rates', JSON.stringify(newData));
     setToCache('time', new Date());
   }
 
